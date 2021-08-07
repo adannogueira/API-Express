@@ -4,7 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn  src/server.ts"
+    "dev2": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn  src/server.ts",
+    "start": "NODE_PATH=./build node build/index.js",
+    "build": "tsc -p .",
+    "dev": "nodemon src/server.ts"
   },
   "dependencies": {
     "csv-parse": "^4.16.0",
@@ -27,6 +30,7 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-import-helpers": "^1.1.0",
     "eslint-plugin-prettier": "^3.4.0",
+    "nodemon": "^2.0.12",
     "prettier": "^2.3.2",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.3.5"

@@ -2,8 +2,16 @@ version: "3.9"
 
 services:
   app:
-    build: .
-    ports: 
-      - 3000:3000
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
     volumes: 
-      - .:/usr/app
+      - ./src:/usr/app/src
+      - ./nodemon.json:/home/usr/app/nodemon.json
+    container_name: ts-node-docker
+    expose: 
+      - '3000'
+    ports:
+      - '3000:3000'
+    command: yarn dev
