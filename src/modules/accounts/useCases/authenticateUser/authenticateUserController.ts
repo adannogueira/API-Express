@@ -14,6 +14,6 @@ export class AuthenticateUserController {
       password,
     });
 
-    return res.status(200).json(token);
+    return res.json(token);
   }
 }

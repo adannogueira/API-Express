@@ -43,7 +43,10 @@ export class AuthenticateUserUseCase {
     });
 
     return {
-      user,
+      user: {
+        name: user.name,
+        email,
+      },
       token,
     };
   }
