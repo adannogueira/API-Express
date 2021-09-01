@@ -1,22 +1,14 @@
-FROM node:alpine as base
+FROM node:alpine
 
 
 WORKDIR /usr/app
 
-COPY package*.json ./
+COPY package.json ./
 
-COPY yarn.lock ./
-
-RUN yarn
+RUN npm install
 
 COPY . . 
 
-EXPOSE 3000
+EXPOSE 3333
 
-CMD ["yarn", "dev"] 
-
-FROM base as production
-
-ENV NODE_PATH=./build
-
-RUN yarn build
+CMD ["npm","run","dev"] 

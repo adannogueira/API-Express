@@ -1,31 +1,35 @@
 version: "3.9"
 
 services:
-  db:
+  database: 
     image: postgres
     container_name: db
     restart: always
     ports: 
       - 5432:5432
-    environment: 
+    environment:
       - POSTGRES_USER=DOCKER
       - POSTGRES_PASSWORD=DOCKER
       - POSTGRES_DB=rentx
-    volumes: 
+    volumes:
       - pgdata:/data/postgres
-    expose: 
-      - 5432
+
   app:
     build: .
     container_name: rentx
+    restart: always
+    ports: 
+      - 3333:3333
+      - 9229:9229
     volumes: 
-      - ./src:/usr/app/src
-      - ./nodemon.json:/home/usr/app/nodemon.json
-    ports:
-      - '3000:3000'
-    depends_on: 
-      - db
+      - .:/usr/app
+    links: 
+      - database
+    depends_on:
+      - database
 
-volumes: 
+
+
+volumes:
   pgdata:
     driver: local

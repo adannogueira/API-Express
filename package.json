@@ -4,11 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "devold": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn  src/server.ts",
+    "dev": "ts-node-dev --files --inspect --transpile-only --ignore-watch node_modules --respawn  src/server.ts",
     "start": "NODE_PATH=./build node build/index.js",
     "build": "tsc -p .",
-    "dev": "nodemon src/server.ts",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli"
+    "dev2": "nodemon src/server.ts",
+    "typeorm": "ts-node-dev --files ./node_modules/typeorm/cli"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
