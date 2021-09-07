@@ -5,7 +5,7 @@
   "username": "DOCKER",
   "password": "DOCKER",
   "database": "rentx",
-  "entities": ["src/**/*{.ts,.js}"],
+  "entities": ["src/**/!(*.spec.ts)"],
   "migrations": ["./src/database/migrations/*.ts"],
   "cli": {
     "migrationsDir": "./src/database/migrations"
