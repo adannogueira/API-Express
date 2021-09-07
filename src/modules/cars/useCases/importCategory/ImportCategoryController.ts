@@ -1,10 +1,9 @@
 import { Request, Response } from "express";
-
-import { ImportCategoryUseCase } from "./ImportCategoryUseCase";
 import { container } from "tsyringe";
 
-export class ImportCategoryController {
+import { ImportCategoryUseCase } from "./ImportCategoryUseCase";
 
+export class ImportCategoryController {
   async handle(req: Request, res: Response): Promise<Response> {
     const { file } = req;
 
