@@ -3,14 +3,12 @@
 **RF**
 
 - Deve ser possível cadastrar um novo veículo
-- Deve ser possível listar todas as categorias
 
 **RN**
 
 - Não deve ser possível cadastrar um veículo com uma placa já existente
-- Não deve ser possível alterar a placa de um veículo já cadastrado
 - O veículo deve ser cadastrado com disponibilidade por padrão
-- O usuário responsável pelo cadastro deve ser um administrador 
+- *O usuário responsável pelo cadastro deve ser um administrador 
 
 # Listagem de Veículos
 

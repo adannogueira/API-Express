@@ -1,9 +1,6 @@
 import { Specification } from "@modules/cars/infra/typeorm/entities/Specification";
 
-export interface ICreateSpecificationDTO {
-  name: string;
-  description: string;
-}
+import { ICreateSpecificationDTO } from "../dtos/ICreateSpecificationDTO";
 
 export interface ISpecificationsRepository {
   create({ name, description }: ICreateSpecificationDTO): Promise<void>;
