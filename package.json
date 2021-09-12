@@ -8,7 +8,8 @@
     "start": "NODE_PATH=./build node build/index.js",
     "build": "tsc -p .",
     "typeorm": "ts-node-dev -r tsconfig-paths/register --files ./node_modules/typeorm/cli",
-    "test": "jest"
+    "test": "jest",
+    "seed:admin": "ts-node-dev src/shared/infra/typeorm/seed/admin.ts"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
