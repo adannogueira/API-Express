@@ -5,10 +5,7 @@
   "username": "DOCKER",
   "password": "DOCKER",
   "database": "rentx",
-  "entities": [
-    "./src/modules/accounts/infra/typeorm/entities/",
-    "./src/modules/cars/infra/typeorm/entities/"
-  ],
+  "entities": ["./**/entities/*.ts"],
   "migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
   "cli": {
     "migrationsDir": "./src/shared/infra/typeorm/migrations"

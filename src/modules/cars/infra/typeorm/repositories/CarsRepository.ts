@@ -12,14 +12,30 @@ export class CarsRepository implements ICarsRepository {
     this.repository = getRepository(Car);
   }
 
-  async create(data: ICreateCarDTO): Promise<void> {
-    const car = this.repository.create(data);
+  async create({
+    brand,
+    category_id,
+    daily_rate,
+    description,
+    fine_amount,
+    license_plate,
+    name,
+  }: ICreateCarDTO): Promise<void> {
+    const car = this.repository.create({
+      brand,
+      category_id,
+      daily_rate,
+      description,
+      fine_amount,
+      license_plate,
+      name,
+    });
 
     await this.repository.save(car);
   }
 
   async findByLicensePlate(license_plate: string): Promise<Car> {
-    const car = await this.repository.findOne(license_plate);
+    const car = await this.repository.findOne({ license_plate });
 
     return car;
   }

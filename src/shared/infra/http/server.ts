@@ -9,7 +9,7 @@ import createConnection from "../typeorm";
 import { router } from "./routes";
 import "../../container";
 
-createConnection();
+createConnection("db");
 const app = express();
 
 app.use(express.json());
