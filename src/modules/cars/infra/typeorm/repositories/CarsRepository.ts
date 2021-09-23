@@ -20,7 +20,7 @@ export class CarsRepository implements ICarsRepository {
     fine_amount,
     license_plate,
     name,
-  }: ICreateCarDTO): Promise<void> {
+  }: ICreateCarDTO): Promise<Car> {
     const car = this.repository.create({
       brand,
       category_id,
@@ -32,11 +32,27 @@ export class CarsRepository implements ICarsRepository {
     });
 
     await this.repository.save(car);
+
+    return car;
   }
 
   async findByLicensePlate(license_plate: string): Promise<Car> {
     const car = await this.repository.findOne({ license_plate });
 
     return car;
+  }
+
+  async listAvailable(
+    name?: string,
+    brand?: string,
+    category_id?: string
+  ): Promise<Car[]> {
+    const cars = await this.repository.find({
+      where: {
+        available: true,
+      },
+    });
+
+    return cars;
   }
 }

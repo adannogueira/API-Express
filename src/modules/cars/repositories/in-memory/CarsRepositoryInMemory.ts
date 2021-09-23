@@ -14,7 +14,7 @@ export class CarsRepositoryInMemory implements ICarsRepository {
     daily_rate,
     description,
     name,
-  }: ICreateCarDTO): Promise<void> {
+  }: ICreateCarDTO): Promise<Car> {
     const car = new Car();
 
     Object.assign(car, {
@@ -28,10 +28,38 @@ export class CarsRepositoryInMemory implements ICarsRepository {
     });
 
     this.cars.push(car);
+    return car;
   }
 
   async findByLicensePlate(license_plate: string): Promise<Car> {
     const car = this.cars.find((car) => car.license_plate === license_plate);
+
+    return car;
+  }
+
+  async listAvailable(
+    name?: string,
+    brand?: string,
+    category_id?: string
+  ): Promise<Car[]> {
+    const availableCars = this.cars.filter((car) => car.available === true);
+
+    if (name || brand || category_id) {
+      availableCars.filter(
+        (car) =>
+          (name && car.name === name) ||
+          (brand && car.brand === brand) ||
+          (category_id && car.category_id === category_id)
+      );
+    }
+
+    return availableCars;
+  }
+
+  async toggleAvailability(id: string): Promise<Car> {
+    const car = this.cars.find((car) => car.id === id);
+
+    car.available = !car.available;
 
     return car;
   }

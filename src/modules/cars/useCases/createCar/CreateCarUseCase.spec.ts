@@ -60,7 +60,6 @@ describe("Create Car", () => {
       const result = await carsRepository.findByLicensePlate("AAA3333");
 
       // Assert
-      console.log(result);
       expect(result.available).toBeTruthy();
     });
   });
